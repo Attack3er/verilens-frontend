@@ -437,11 +437,11 @@ export default function App() {
         const kind = classifyFile(file);
         if (!kind) throw new Error("Unsupported file type.");
         endpoint = `/analyze/${kind}`;
-        body = new FormData();
+        body = new URLSearchParams();
         body.append("file", file);
       } else if (tab === "url" && url.trim()) {
         endpoint = "/analyze/url";
-        body = new FormData();
+        body = new URLSearchParams();
         body.append("url", url.trim());
       } else {
         throw new Error("Nothing to analyze.");
